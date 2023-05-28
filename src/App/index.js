@@ -1,12 +1,10 @@
 import React from 'react'
-import { ToDoCounter } from './ToDoCounter';
-import { ToDoSearch } from './ToDoSearch';
-import { ToDoList } from './ToDoList';
-import { TodoItem } from './TodoItem';
-import { CreateToDoButton } from './CreateTodoButton';
-
-
-
+import { ToDoCounter } from '../ToDoCounter';
+import { ToDoSearch } from '../ToDoSearch';
+import { ToDoList } from '../ToDoList';
+import { TodoItem } from '../TodoItem';
+import { CreateToDoButton } from '../CreateTodoButton';
+import { useLocalStorage } from './useLocalStorage';
 // const defaultTodos = [
 //   { text: 'Cortar cebolla', completed: true},
 //   { text: 'Armar un bate', completed: false},
@@ -19,39 +17,16 @@ import { CreateToDoButton } from './CreateTodoButton';
 // localStorage.setItem('TODOS_V1',stringyfiedTodos)
 // localStorage.removeItem('TODOS_V1')
 
-function useLocalStorage(itemName, initialValue) {
 
-  const localStorageItem = localStorage.getItem(itemName);
-
-  let parsedItem; 
-
-  if (!localStorageItem) {
-    localStorage.setItem(itemName, JSON.stringify(initialValue))
-    parsedItem = initialValue;
-  } else {
-    parsedItem = JSON.parse(localStorageItem)
-  }
-
-  const[item, setItem] = React.useState(parsedItem)
-
-  const saveItem = (newItem) => {
-    localStorage.setItem(itemName, JSON.stringify(newItem));
-
-    setItem(newItem)
-  };
-
-  return [item, saveItem]
-}
 
 function App() {
-
-  const [todos, saveTodos ] = useLocalStorage('TODOS_V1', [])
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1', [])
   const [searchValue, setSearchValue] = React.useState('');
 
   const completedTodos = todos.filter(
     todo => !!todo.completed
-    ).length;
-  
+  ).length;
+
   const totalTodos = todos.length;
 
   const searchedTodos = todos.filter(
@@ -79,27 +54,27 @@ function App() {
     newTodos.splice(todoIndex, 1)
     saveTodos(newTodos)
   }
-  
+
   console.log('los usuarios buscan todos de ' + searchValue)
 
   return (
-    
+
     <>
-      <ToDoCounter 
-        completed={completedTodos} 
+      <ToDoCounter
+        completed={completedTodos}
         total={totalTodos}
       />
-      <ToDoSearch 
+      <ToDoSearch
         searchValue={searchValue}
         setSearchValue={setSearchValue}
       />
 
       <ToDoList>
         {searchedTodos.map(todo => (
-          <TodoItem 
-            key={todo.text} 
+          <TodoItem
+            key={todo.text}
             text={todo.text}
-            completed= {todo.completed}
+            completed={todo.completed}
             onComplete={() => completeTodo(todo.text)}
             onDelete={() => deleteTodo(todo.text)}
           />
@@ -111,7 +86,5 @@ function App() {
     </>
   );
 }
-
-
 
 export default App;
