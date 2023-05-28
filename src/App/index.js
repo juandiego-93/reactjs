@@ -1,10 +1,6 @@
 import React from 'react'
-import { ToDoCounter } from '../ToDoCounter';
-import { ToDoSearch } from '../ToDoSearch';
-import { ToDoList } from '../ToDoList';
-import { TodoItem } from '../TodoItem';
-import { CreateToDoButton } from '../CreateTodoButton';
 import { useLocalStorage } from './useLocalStorage';
+import { AppUI } from './AppUI';
 // const defaultTodos = [
 //   { text: 'Cortar cebolla', completed: true},
 //   { text: 'Armar un bate', completed: false},
@@ -16,8 +12,6 @@ import { useLocalStorage } from './useLocalStorage';
 
 // localStorage.setItem('TODOS_V1',stringyfiedTodos)
 // localStorage.removeItem('TODOS_V1')
-
-
 
 function App() {
   const [todos, saveTodos] = useLocalStorage('TODOS_V1', [])
@@ -58,32 +52,15 @@ function App() {
   console.log('los usuarios buscan todos de ' + searchValue)
 
   return (
-
-    <>
-      <ToDoCounter
-        completed={completedTodos}
-        total={totalTodos}
-      />
-      <ToDoSearch
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-      />
-
-      <ToDoList>
-        {searchedTodos.map(todo => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-      </ToDoList>
-
-      <CreateToDoButton />
-
-    </>
+    <AppUI
+      completedTodos={completedTodos}
+      totalTodos={totalTodos}
+      searchValue={searchValue}
+      setSearchValue={setSearchValue}
+      searchedTodos={searchedTodos}
+      completeTodo={completeTodo}
+      deleteTodo={deleteTodo}
+    />
   );
 }
 
