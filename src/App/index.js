@@ -1,6 +1,8 @@
 import React from 'react'
 import { useLocalStorage } from './useLocalStorage';
 import { AppUI } from './AppUI';
+
+// localStorage.removeItem('TODOS_V1')
 // const defaultTodos = [
 //   { text: 'Cortar cebolla', completed: true},
 //   { text: 'Armar un bate', completed: false},
@@ -11,7 +13,6 @@ import { AppUI } from './AppUI';
 // let stringyfiedTodos = JSON.stringify(defaultTodos)
 
 // localStorage.setItem('TODOS_V1',stringyfiedTodos)
-// localStorage.removeItem('TODOS_V1')
 
 function App() {
   const {
