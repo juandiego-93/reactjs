@@ -35,7 +35,7 @@ function useLocalStorage(itemName, initialValue) {
     setItem(newItem)
   };
 
-  console.log(item)
+  // console.log(item)
 
   return {
     item, 

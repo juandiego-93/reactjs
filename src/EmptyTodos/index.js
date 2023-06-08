@@ -3,7 +3,7 @@ import React from 'react'
 
 function EmptyTodos() {
     return (
-        <p>Crea tu primer Todo</p>
+        <p className='mt-6 font-sans text-xl'>Crea tu primer Todo</p>
     );
 }
 

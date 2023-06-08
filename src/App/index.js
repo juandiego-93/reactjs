@@ -8,6 +8,7 @@ import { CreateToDoButton } from '../CreateTodoButton';
 import { LoadingTodos } from '../LoadingTodos';
 import { ErrorTodos } from './../ErrorTodos/index.js';
 import { EmptyTodos } from '../EmptyTodos';
+import { EmptySearch } from '../EmptySearch';
 import { TodoForm } from '../TodoForm'
 import { Modal } from '../Modal';
 
@@ -21,20 +22,54 @@ function App() {
     openModal,
     totalTodos,
     completedTodos,
-    searchValue, 
+    searchValue,
     setSearchValue,
     addTodo, 
     setOpenModal,
 } = useTodos()
   return (
     <>
-      <ToDoCounter
+      <header>
+        <ToDoCounter
+          totalTodos={totalTodos}
+          completedTodos={completedTodos} />
+        <ToDoSearch
+          searchValue={searchValue}
+          setSearchValue={setSearchValue} />
+      </header>
+      <ToDoList
+        error={error}
+        loading={loading}
+        searchedTodos={searchedTodos}
         totalTodos={totalTodos}
-        completedTodos={completedTodos} />
-      <ToDoSearch
-        searchValue={searchValue}
-        setSearchValue={setSearchValue} />
-      <ToDoList>
+        searchText={searchValue}
+        onError={() => <ErrorTodos />}
+        onLoading={() => <LoadingTodos />}
+        onEmpty={() => <EmptyTodos />}
+        onEmptySearchedResult={(searchText)=> <EmptySearch searchText={searchText}/>}
+        // render={todo => (
+        //   <TodoItem
+        //     key={todo.text}
+        //     text={todo.text}
+        //     completed={todo.completed}
+        //     onComplete={() => completeTodo(todo.text)}
+        //     onDelete={() => deleteTodo(todo.text)}
+        //   />
+        // )}
+      >
+      {todo => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
+          />
+        )}
+
+      </ToDoList>
+
+      {/* <ToDoList>
         {loading && (
           <>
             < LoadingTodos />
@@ -53,7 +88,7 @@ function App() {
             onDelete={() => deleteTodo(todo.text)}
           />
         ))}
-      </ToDoList>
+      </ToDoList> */}
       <CreateToDoButton
         setOpenModal={setOpenModal}
         openModal={openModal} />
