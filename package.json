@@ -9,8 +9,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "deploy":"gh-pages -d build",
-    "predeploy":"npm run build",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
   },
@@ -33,6 +33,7 @@
   },
   "homepage": "https://juandiego-93.github.io/reactjs",
   "devDependencies": {
-    "gh-pages": "^5.0.0"
+    "gh-pages": "^5.0.0",
+    "tailwindcss": "^3.3.2"
   }
 }
