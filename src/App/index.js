@@ -32,10 +32,14 @@ function App() {
       <header>
         <ToDoCounter
           totalTodos={totalTodos}
-          completedTodos={completedTodos} />
+          completedTodos={completedTodos}
+          loading={loading}
+        />
         <ToDoSearch
           searchValue={searchValue}
-          setSearchValue={setSearchValue} />
+          setSearchValue={setSearchValue}
+          loading={loading}
+        />
       </header>
       <ToDoList
         error={error}

@@ -1,7 +1,7 @@
 import React from 'react'
 import  './TodoCounter.css';
 
-function ToDoCounter({totalTodos, completedTodos}) {
+function ToDoCounter({totalTodos, completedTodos, loading}) {
   if (totalTodos === completedTodos) {
     return <h1 className='ToDoCounter'> Felicidades completaste todos los ToDos</h1>
   }

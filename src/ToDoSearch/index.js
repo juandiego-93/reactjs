@@ -1,7 +1,7 @@
 import React from 'react';
 import './TodoSearch.css'
 
-function ToDoSearch({searchValue, setSearchValue}) {
+function ToDoSearch({searchValue, setSearchValue, loading}) {
   return (
     <input
       placeholder="Cortar cebolla"
