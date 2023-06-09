@@ -11,6 +11,7 @@ import { EmptyTodos } from '../EmptyTodos';
 import { EmptySearch } from '../EmptySearch';
 import { TodoForm } from '../TodoForm'
 import { Modal } from '../Modal';
+import { ToDoHeader } from '../ToDoHeader';
 
 function App() {
   const {
@@ -29,7 +30,7 @@ function App() {
 } = useTodos()
   return (
     <>
-      <header>
+      <ToDoHeader>
         <ToDoCounter
           totalTodos={totalTodos}
           completedTodos={completedTodos}
@@ -40,7 +41,7 @@ function App() {
           setSearchValue={setSearchValue}
           loading={loading}
         />
-      </header>
+      </ToDoHeader>
       <ToDoList
         error={error}
         loading={loading}

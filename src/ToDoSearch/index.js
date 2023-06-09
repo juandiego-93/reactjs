@@ -8,8 +8,9 @@ function ToDoSearch({searchValue, setSearchValue, loading}) {
       className="TodoSearch"
       value={searchValue}
       onChange={(event) => {
-        setSearchValue(event.target.value);
+        setSearchValue(event.target.value)
       }}
+      disabled={loading}
     />
   );
 }
