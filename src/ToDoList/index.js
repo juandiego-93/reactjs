@@ -8,7 +8,7 @@ function ToDoList(props){
         {props.error && props.onError()}
         {props.loading && props.onLoading()}
         
-        {(!!props.loading && !props.totalTodos) && props.onEmpty()}
+        {(!props.loading && !props.totalTodos) && props.onEmpty()}
 
         {(!!props.totalTodos && !props.searchedTodos.length) && props.onEmptySearchedResult(props.searchText)}
         {console.log(!!props.totalTodos)}
