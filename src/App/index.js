@@ -49,7 +49,7 @@ function App() {
         totalTodos={totalTodos}
         searchText={searchValue}
         onError={() => <ErrorTodos />}
-        onLoading={() => <LoadingTodos />}
+        onLoading={() => <LoadingTodos /> }
         onEmpty={() => <EmptyTodos />}
         onEmptySearchedResult={(searchText)=> <EmptySearch searchText={searchText}/>}
         // render={todo => (
