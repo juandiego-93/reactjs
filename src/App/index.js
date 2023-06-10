@@ -12,6 +12,7 @@ import { EmptySearch } from '../EmptySearch';
 import { TodoForm } from '../TodoForm'
 import { Modal } from '../Modal';
 import { ToDoHeader } from '../ToDoHeader';
+import { ChangeAlertWithStorageListener } from '../ChangeAlert';
 
 function App() {
   const {
@@ -94,9 +95,6 @@ function App() {
           />
         ))}
       </ToDoList> */}
-      <CreateToDoButton
-        setOpenModal={setOpenModal}
-        openModal={openModal} />
       {openModal && (
         <Modal>
           <TodoForm
@@ -105,6 +103,11 @@ function App() {
           </TodoForm>
         </Modal>
       )}
+      <CreateToDoButton
+        setOpenModal={setOpenModal}
+        openModal={openModal} />
+      <ChangeAlertWithStorageListener />
+
     </>
   )
 }
