@@ -28,6 +28,7 @@ function App() {
     setSearchValue,
     addTodo, 
     setOpenModal,
+    sincronizeTodos
 } = useTodos()
   return (
     <>
@@ -106,7 +107,9 @@ function App() {
       <CreateToDoButton
         setOpenModal={setOpenModal}
         openModal={openModal} />
-      <ChangeAlertWithStorageListener />
+      <ChangeAlertWithStorageListener 
+        sincronize= {sincronizeTodos}
+      />
 
     </>
   )
