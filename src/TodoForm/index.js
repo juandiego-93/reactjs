@@ -26,7 +26,7 @@ function TodoForm({ addTodo, setOpenModal,}){
                 placeholder='Cortar cebolla para comer y no morir de hambre'
                 value={newTodoValue}
                 onChange={onChange}
-                style={{'color':'#1E1E1F'}}
+                style={{'color':'#1E1E1F', 'padding':'12px'}}
             />
             <div className='TodoForm-buttonContainer'>
                 <button
