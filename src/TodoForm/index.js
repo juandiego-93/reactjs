@@ -26,6 +26,7 @@ function TodoForm({ addTodo, setOpenModal,}){
                 placeholder='Cortar cebolla para comer y no morir de hambre'
                 value={newTodoValue}
                 onChange={onChange}
+                style={{'color':'#1E1E1F'}}
             />
             <div className='TodoForm-buttonContainer'>
                 <button
@@ -34,8 +35,9 @@ function TodoForm({ addTodo, setOpenModal,}){
                     onClick={onCancel}
                 >Cancelar</button>
                 <button
-                    className='TodoForm-button TodoForm-button--add'
+                    className='TodoForm-button--add TodoForm-button '
                     type='submit'
+                    style={{'background': '#61DAFA', 'color':'white'}}
                 >Añadir</button>
             </div>
         </form>
