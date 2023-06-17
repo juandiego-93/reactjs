@@ -36,12 +36,10 @@ function App() {
         <ToDoCounter
           totalTodos={totalTodos}
           completedTodos={completedTodos}
-          // loading={loading}
         />
         <ToDoSearch
           searchValue={searchValue}
           setSearchValue={setSearchValue}
-          // loading={loading}
         />
       </ToDoHeader>
       <ToDoList
@@ -53,17 +51,7 @@ function App() {
         onError={() => <ErrorTodos />}
         onLoading={() => <LoadingTodos /> }
         onEmpty={() => <EmptyTodos />}
-        onEmptySearchedResult={(searchText)=> <EmptySearch searchText={searchText}/>}
-        // render={todo => (
-        //   <TodoItem
-        //     key={todo.text}
-        //     text={todo.text}
-        //     completed={todo.completed}
-        //     onComplete={() => completeTodo(todo.text)}
-        //     onDelete={() => deleteTodo(todo.text)}
-        //   />
-        // )}
-      >
+        onEmptySearchedResult={(searchText)=> <EmptySearch searchText={searchText}/>}>
       {todo => (
           <TodoItem
             key={todo.text}
@@ -73,29 +61,7 @@ function App() {
             onDelete={() => deleteTodo(todo.text)}
           />
         )}
-
       </ToDoList>
-
-      {/* <ToDoList>
-        {loading && (
-          <>
-            < LoadingTodos />
-            < LoadingTodos />
-            < LoadingTodos />
-          </>
-        )}
-        {error && < ErrorTodos />}
-        {(!loading && searchedTodos.length === 0) && <EmptyTodos />}
-        {searchedTodos.map(todo => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-      </ToDoList> */}
       {openModal && (
         <Modal>
           <TodoForm
@@ -110,7 +76,6 @@ function App() {
       <ChangeAlert 
         sincronize= {sincronizeTodos}
       />
-
     </>
   )
 }
