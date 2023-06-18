@@ -68,11 +68,11 @@ function useTodos() {
       completedTodos,
       totalTodos,
       searchValue,
-      setSearchValue,
       searchedTodos,
+      openModal,
+      setSearchValue,
       completeTodo,
       deleteTodo,
-      openModal,
       setOpenModal,
       addTodo,
       sincronizeTodos
