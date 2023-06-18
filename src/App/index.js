@@ -16,15 +16,15 @@ import { ChangeAlert } from '../ChangeAlert';
 
 function App() {
   const {
-    loading,
     error,
+    loading,
     searchedTodos,
-    completeTodo,
-    deleteTodo,
-    openModal,
     totalTodos,
     completedTodos,
+    openModal,
     searchValue,
+    completeTodo,
+    deleteTodo,
     setSearchValue,
     addTodo, 
     setOpenModal,
